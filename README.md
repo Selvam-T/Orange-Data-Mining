@@ -13,9 +13,21 @@ WORKDIR /app
 # Consider Installing SQLite3 CLI to access .db, convert .db to .csv
 
 # Install system dependencies for Qt and X11
-RUN apt-get update && apt-get install -y \
-    libx11-6 libxext6 libxrender1 libsm6 libxrandr2 libgl1-mesa-glx libglib2.0-0 \
-    libqt5widgets5 libqt5gui5 libqt5core5a \
+RUN apt-get update && \ 
+    apt-get install -y \
+    libx11-6 \
+    libxext6 \
+    libxrender1 \
+    libsm6 \
+    libxrandr2 \
+    libgl1 \
+    libglu1-mesa \
+    libglib2.0-0 \
+    libqt5widgets5 \
+    libqt5gui5 \
+    libqt5core5a \
+    xauth \
+    x11-xserver-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Orange3 and PyQt5 via pip
@@ -142,4 +154,27 @@ Test app to confirm your Docker container can connect and display GUIs through X
 ```	
 
 - You should find a file named table.csv
+
+## Orange Datamining Lessons  
+( YouTube tutorial - Orange Data Mining)
+
+### Widgets
+
+Widgets are computation units of Orange.
+- read data  
+- process it  
+- visualize it  
+- do clustering  
+- build predictive model  
+- help explore data  
+
+Open data with File widget.
+
+Widgets communicate with each other via input / output channels.
+
+### Workflow  
+
+Connecting a File widget with a Distribution wideget is a workflow.
+
+
 
